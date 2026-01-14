@@ -6,10 +6,10 @@ const About = () => {
     return (
         <div className="bg-white">
             {/* Header */}
-            <div className="bg-sky-50 py-16">
+            <div className="bg-secondary text-white py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl font-bold text-gray-900">About Us</h1>
-                    <p className="mt-4 text-xl text-gray-600">Creating cleaner, healthier, and more comfortable environments.</p>
+                    <h1 className="text-4xl font-bold">About Us</h1>
+                    <p className="mt-4 text-xl text-sky-100">Creating cleaner, healthier, and more comfortable environments.</p>
                 </div>
             </div>
 

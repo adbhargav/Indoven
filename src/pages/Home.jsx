@@ -113,8 +113,8 @@ const Home = () => {
                             { icon: Coins, title: "Affordable Pricing", desc: "High-quality service at competitive market rates." },
                             { icon: Clock, title: "On-Time Service", desc: "We value your time and guarantee punctual service." }
                         ].map((item, index) => (
-                            <div key={index} className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center group">
-                                <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary transition-colors">
+                            <div key={index} className="bg-slate-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-center group border border-slate-200">
+                                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary transition-colors shadow-sm">
                                     <item.icon className="text-secondary w-8 h-8 group-hover:text-white transition-colors" />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
@@ -140,8 +140,8 @@ const Home = () => {
                             { icon: ShieldCheck, title: "We Clean & Protect", desc: "Our team arrives and gets to work." },
                             { icon: Smile, title: "You Relax", desc: "Enjoy your sparkling clean space." }
                         ].map((step, index) => (
-                            <div key={index} className="flex flex-col items-center text-center group">
-                                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-300 transform group-hover:scale-110">
+                            <div key={index} className="flex flex-col items-center text-center group bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 h-full w-full">
+                                <div className="w-20 h-20 bg-sky-50 rounded-full flex items-center justify-center shadow-inner mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-300 transform group-hover:scale-110">
                                     <step.icon size={36} className="text-secondary group-hover:text-white transition-colors" />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
