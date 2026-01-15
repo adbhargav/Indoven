@@ -92,6 +92,13 @@ const ChemicalsCatalog = () => {
                                         {chemical.dilution}
                                     </p>
                                 </div>
+
+                                <Link
+                                    to="/contact"
+                                    className="w-full mt-4 bg-accent hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                                >
+                                    Book Now
+                                </Link>
                             </div>
                         </div>
                     ))}
