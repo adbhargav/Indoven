@@ -14,7 +14,9 @@ const Services = () => {
             icon: SprayCan,
             description: "We supply high-quality, safe, and effective cleaning chemicals suitable for homes, offices, and commercial spaces. Our products are eco-friendly and tough on stains.",
             features: ["Eco-friendly formulas", "Bulk supply available", "Safety certified"],
-            image: housekeepingImage
+            image: housekeepingImage,
+            link: "/services/chemicals",
+            buttonText: "View Products"
         },
         {
             id: 2,
@@ -58,13 +60,27 @@ const Services = () => {
                         <div key={service.id} className={`bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
 
                             {/* Image Section */}
-                            <div className="lg:w-2/5 relative min-h-[300px] bg-gray-100 flex items-center justify-center">
-                                {service.image ? (
-                                    <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover" />
+                            <div className="lg:w-2/5 relative min-h-[300px] bg-gray-100 flex items-center justify-center group/image cursor-pointer">
+                                {service.link ? (
+                                    <Link to={service.link} className="absolute inset-0 w-full h-full block">
+                                        {service.image ? (
+                                            <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-105" />
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center text-secondary/20">
+                                                <service.icon size={120} strokeWidth={1} />
+                                            </div>
+                                        )}
+                                    </Link>
                                 ) : (
-                                    <div className="text-secondary/20 p-8">
-                                        <service.icon size={120} strokeWidth={1} />
-                                    </div>
+                                    <>
+                                        {service.image ? (
+                                            <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover" />
+                                        ) : (
+                                            <div className="text-secondary/20 p-8">
+                                                <service.icon size={120} strokeWidth={1} />
+                                            </div>
+                                        )}
+                                    </>
                                 )}
                             </div>
 
@@ -74,7 +90,15 @@ const Services = () => {
                                     <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center text-secondary">
                                         <service.icon size={24} />
                                     </div>
-                                    <h2 className="text-3xl font-bold text-gray-900">{service.title}</h2>
+                                    <h2 className="text-3xl font-bold text-gray-900">
+                                        {service.link ? (
+                                            <Link to={service.link} className="hover:text-accent transition-colors">
+                                                {service.title}
+                                            </Link>
+                                        ) : (
+                                            service.title
+                                        )}
+                                    </h2>
                                 </div>
 
                                 <p className="text-gray-600 text-lg mb-6 leading-relaxed">
@@ -94,10 +118,10 @@ const Services = () => {
                                 </div>
 
                                 <Link
-                                    to="/contact"
+                                    to={service.link || "/contact"}
                                     className="inline-flex items-center space-x-2 bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition-all shadow-md self-start group"
                                 >
-                                    <span>Book This Service</span>
+                                    <span>{service.buttonText || "Book This Service"}</span>
                                     <ArrowRight size={20} className="transform group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
