@@ -66,8 +66,17 @@ const ChemicalsCatalog = () => {
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredChemicals.map((chemical) => (
-                        <div key={chemical.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex flex-col h-full group">
-                            <div className="p-6 flex-grow">
+                        <div key={chemical.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex flex-col h-full group overflow-hidden">
+                            {chemical.image && (
+                                <div className="h-48 w-full overflow-hidden bg-gray-100 flex items-center justify-center">
+                                    <img
+                                        src={chemical.image}
+                                        alt={chemical.name}
+                                        className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                                    />
+                                </div>
+                            )}
+                            <div className="p-6 flex-grow flex flex-col">
                                 <div className="flex justify-between items-start mb-4">
                                     <div className="bg-accent/10 text-accent font-bold px-3 py-1 rounded-lg text-sm">
                                         {chemical.id}
@@ -79,11 +88,11 @@ const ChemicalsCatalog = () => {
                                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-secondary transition-colors">
                                     {chemical.name}
                                 </h3>
-                                <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+                                <p className="text-gray-600 mb-6 text-sm leading-relaxed flex-grow">
                                     {chemical.description}
                                 </p>
 
-                                <div className="bg-sky-50 rounded-lg p-4 mt-auto">
+                                <div className="bg-sky-50 rounded-lg p-4 mt-auto mb-4">
                                     <h4 className="flex items-center text-sm font-semibold text-secondary mb-2">
                                         <Droplet size={16} className="mr-2" />
                                         Recommended Dilution:
@@ -95,7 +104,7 @@ const ChemicalsCatalog = () => {
 
                                 <Link
                                     to="/contact"
-                                    className="w-full mt-4 bg-accent hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                                    className="w-full bg-accent hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
                                 >
                                     Book Now
                                 </Link>
